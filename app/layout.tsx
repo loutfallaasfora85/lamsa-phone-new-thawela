@@ -41,7 +41,7 @@ export const metadata: Metadata = {
       "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري. وجهتكم الأولى لأفخم المفروشات والأثاث المنزلي.",
     images: [
       {
-        url: "https://homly.sa/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري | سهلناها",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري | سهلناها",
     description:
       "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري. وجهتكم الأولى لأفخم المفروشات والأثاث المنزلي.",
-    images: ["https://homly.sa/og-image.png"],
+    images: ["og-image.png"],
   },
   robots: {
     index: true,

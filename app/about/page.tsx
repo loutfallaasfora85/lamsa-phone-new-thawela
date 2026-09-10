@@ -21,6 +21,7 @@ export default function AboutPage() {
             <span className="inline-block text-[#e9c176] text-sm font-medium tracking-[0.05em] uppercase mb-4">من نحن</span>
             <h1 className="text-3xl sm:text-4xl md:text-[60px] font-bold text-white leading-tight md:leading-[72px] tracking-tight mb-4">
               بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري
+            </h1>
             <p className="text-[#e0e3e5] text-base sm:text-lg max-w-xl mx-auto leading-7">
               شريككم الموثوق في عالم الأثاث والمفروشات الفاخرة
             </p>
