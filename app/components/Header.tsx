@@ -27,7 +27,7 @@ export default function Header() {
     <header className="bg-white border-b border-[#c6c6cd] shadow-sm sticky top-0 z-50">
       <nav className="flex justify-between items-center w-full px-4 sm:px-6 lg:px-12 max-w-[1280px] mx-auto h-16">
         <Link href="/" className="flex items-center shrink-0">
-          <Image src="/logo.webp" alt="سهلناها" width={44} height={44} className="rounded-lg" />
+          <Image src="/logo.webp" alt="بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري" width={44} height={44} className="rounded-lg" />
         </Link>
 
         <div className="hidden md:flex gap-8 items-center">

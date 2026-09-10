@@ -6,8 +6,8 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">
-            <div className="text-white font-bold text-lg mb-1">سهلناها</div>
-            <div className="text-[#fed488] text-xs mb-4 tracking-wide">للمفروشات المنزلية</div>
+            <div className="text-white font-bold text-lg mb-1">بائع أثاث ومفروشات منزلية</div>
+            <div className="text-[#fed488] text-xs mb-4 tracking-wide">مرضي جلوي عيشان العميري</div>
             <p className="text-white/40 text-sm leading-relaxed mb-5">
               وجهتكم الأولى لأفخم المفروشات والأثاث بتصاميم راقية تناسب كل ذوق.
             </p>
@@ -66,7 +66,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold text-sm mb-5">تواصل معنا</h4>
             <a
-              href="https://wa.me/966592069730"
+              href="https://wa.me/9665957876073"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 bg-[#25d366]/10 border border-[#25d366]/20 hover:bg-[#25d366]/20 text-white rounded-xl px-4 py-3 transition-all"
@@ -76,14 +76,14 @@ export default function Footer() {
               </svg>
               <div>
                 <div className="text-xs text-white/50">واتساب</div>
-                <div className="text-white font-semibold text-sm" dir="ltr">0592069730</div>
+                <div className="text-white font-semibold text-sm" dir="ltr">+9665957876073</div>
               </div>
             </a>
           </div>
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <span className="text-xs text-white/30">© 2026 سهلناها للمفروشات المنزلية. جميع الحقوق محفوظة</span>
+          <span className="text-xs text-white/30">© 2026 بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري. جميع الحقوق محفوظة</span>
           <span className="text-xs text-white/20">صُنع بـ ❤️ في المملكة العربية السعودية</span>
         </div>
       </div>
