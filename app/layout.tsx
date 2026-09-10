@@ -9,7 +9,7 @@ const cairo = Cairo({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
-const siteUrl = "https://homly.sa/";
+const siteUrl = "https://lamsastorre.com/";
 const siteName = "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري";
 
 export const metadata: Metadata = {
@@ -41,11 +41,9 @@ export const metadata: Metadata = {
       "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري. وجهتكم الأولى لأفخم المفروشات والأثاث المنزلي.",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        url: "https://lamsastorre.com/logo.webp",
         alt: "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري | سهلناها",
-        type: "image/png",
+        type: "image/webp",
       },
     ],
   },
@@ -54,7 +52,7 @@ export const metadata: Metadata = {
     title: "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري | سهلناها",
     description:
       "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري. وجهتكم الأولى لأفخم المفروشات والأثاث المنزلي.",
-    images: ["og-image.png"],
+    images: ["https://lamsastorre.com/logo.webp"],
   },
   robots: {
     index: true,
