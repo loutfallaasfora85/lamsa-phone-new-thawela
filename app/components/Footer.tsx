@@ -19,7 +19,7 @@ export default function Footer() {
             >
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#4ade80] text-base">verified</span>
-                <span className="text-white/40 text-xs">وثيقة ممارس حر</span>
+                <span className="text-white/40 text-xs">وثيقة عمل حر</span>
               </div>
               <span className="text-white font-bold text-base">FL-536733260</span>
               <span className="text-[#fed488] text-xs group-hover:underline">اضغط لعرض الوثيقة</span>
