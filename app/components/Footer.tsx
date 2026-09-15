@@ -12,15 +12,17 @@ export default function Footer() {
               وجهتكم الأولى لأفخم المفروشات والأثاث بتصاميم راقية تناسب كل ذوق.
             </p>
             <a
-              href="/commercial-register"
+              href="/WhatsApp Image 2026-09-15 at 13.24.48.jpeg"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex flex-col gap-1 bg-white/[0.04] border border-white/[0.08] hover:border-[#fed488]/30 hover:bg-white/[0.07] rounded-xl p-4 transition-all group"
             >
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#4ade80] text-base">verified</span>
-                <span className="text-white/40 text-xs">السجل التجاري</span>
+                <span className="text-white/40 text-xs">وثيقة ممارس حر</span>
               </div>
-              <span className="text-white font-bold text-base">7054284067</span>
-              <span className="text-[#fed488] text-xs group-hover:underline">اضغط لعرض السجل</span>
+              <span className="text-white font-bold text-base">FL-536733260</span>
+              <span className="text-[#fed488] text-xs group-hover:underline">اضغط لعرض الوثيقة</span>
             </a>
           </div>
 
