@@ -18,8 +18,9 @@ export default function OrderResultContent() {
   const cartCleared = useRef(false);
 
   const [status, setStatus] = useState<"loading" | "paid" | "failed" | "cash" | "pending_verification">(
-    verify === "mf" || verify === "hyperpay" ? "loading" : "cash"
+    verify === "mf" || verify === "hyperpay" || verify === "neoleap" ? "loading" : "cash"
   );
+
   const [order, setOrder] = useState<Order | null>(null);
 
   // مسح السلة بعد تأكيد الدفع فقط
@@ -87,6 +88,28 @@ export default function OrderResultContent() {
       const rp = resourcePath || searchParams.get("resourcePath");
       if (!rp) { setStatus("pending_verification"); return; }
       fetch(`${API_URL}/api/orders/${orderId}/verify-hyperpay?resourcePath=${encodeURIComponent(rp)}`)
+        .then((r) => r.json().then((d) => ({ status: r.status, data: d })))
+        .then(({ status: httpStatus, data: d }) => {
+          if (d.success) setStatus("paid");
+          else if (httpStatus === 202 || d.pending) setStatus("pending_verification");
+          else setStatus("failed");
+        })
+        .catch(() => setStatus("pending_verification"));
+    }
+
+    // ─── Neoleap Payment Verification ───
+    if (verify === "neoleap") {
+      const statusParam = searchParams.get("status");
+
+      // إذا أرسل Neoleap status=failed أو error
+      if (statusParam === "failed" || statusParam === "error") {
+        setStatus("failed");
+        return;
+      }
+
+      // نتحقق من الحالة عبر الـ backend
+      const queryString = window.location.search;
+      fetch(`${API_URL}/api/orders/${orderId}/verify-neoleap-payment${queryString}`)
         .then((r) => r.json().then((d) => ({ status: r.status, data: d })))
         .then(({ status: httpStatus, data: d }) => {
           if (d.success) setStatus("paid");

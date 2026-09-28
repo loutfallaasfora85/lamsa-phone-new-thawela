@@ -47,7 +47,7 @@ function CheckoutContent() {
   const [error, setError] = useState("");
   const [form, setForm] = useState({ customerName: "", phone: "", address: "", city: "الرياض", notes: "" });
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
-  const [paymentMethod, setPaymentMethod] = useState<"online" | "hyperpay">("hyperpay");
+  const [paymentMethod, setPaymentMethod] = useState<"online" | "hyperpay" | "neoleap">("hyperpay");
 
   useEffect(() => {
     const errorParam = searchParams.get("error");
@@ -88,6 +88,12 @@ function CheckoutContent() {
     if (items.length === 0) { setError("السلة فارغة"); return; }
     setLoading(true);
     try {
+      // تحديد paymentMethod للإرسال للـ backend
+      const backendPaymentMethod =
+        paymentMethod === "neoleap" ? "neoleap" :
+        paymentMethod === "hyperpay" ? "hyperpay" :
+        "online";
+
       const res = await fetch(`${API_URL}/api/orders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -97,17 +103,37 @@ function CheckoutContent() {
           address: `${form.city} - ${form.address}`,
           notes: form.notes,
           items: items.map((i) => ({ productId: i.productId, quantity: i.quantity })),
-          paymentMethod: paymentMethod === "online" ? "online" : "hyperpay",
+          paymentMethod: backendPaymentMethod,
         }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "حدث خطأ");
 
+      // ─── Neoleap Payment ───
+      if (paymentMethod === "neoleap") {
+        const nlRes = await fetch(`${API_URL}/api/orders/${data.data._id}/neoleap-session`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+        });
+        const nlData = await nlRes.json();
+        if (!nlRes.ok) throw new Error(nlData.message || "فشل إنشاء جلسة الدفع");
+        const redirectUrl = nlData.data?.redirectUrl;
+        if (typeof redirectUrl !== "string" || !URL.canParse(redirectUrl) || new URL(redirectUrl).protocol !== "https:") {
+          throw new Error("بوابة الدفع لم تُرجع رابط دفع صالحاً. يرجى التواصل مع المتجر أو اختيار طريقة دفع أخرى.");
+        }
+
+        // حفظ معرف الطلب لمسح السلة لاحقاً
+        localStorage.setItem("pendingOrderId", data.data._id);
+
+        // التحويل لصفحة Neoleap الآمنة
+        window.location.href = redirectUrl;
+        return;
+      }
+
       if (paymentMethod === "online") {
         const mfRes = await fetch(`${API_URL}/api/orders/${data.data._id}/myfatoorah-session`, { method: "POST" });
         const mfData = await mfRes.json();
         if (!mfRes.ok) throw new Error(mfData.message || "فشل إنشاء جلسة الدفع");
-        // Save orderId to clear cart after successful payment
         localStorage.setItem("pendingOrderId", data.data._id);
         window.location.href = mfData.payUrl;
         return;
@@ -117,7 +143,6 @@ function CheckoutContent() {
         const hpRes = await fetch(`${API_URL}/api/orders/${data.data._id}/hyperpay-session`, { method: "POST" });
         const hpData = await hpRes.json();
         if (!hpRes.ok) throw new Error(hpData.message || "فشل إنشاء جلسة HyperPay");
-        // Save orderId to clear cart after successful payment
         localStorage.setItem("pendingOrderId", data.data._id);
         router.push(`/hyperpay-checkout?orderId=${data.data._id}&checkoutId=${hpData.checkoutId}`);
         return;
@@ -129,6 +154,7 @@ function CheckoutContent() {
       setLoading(false);
     }
   };
+
 
   const getImageUrl = (img: string) =>
     img.startsWith("http") ? img : `${API_URL}/uploads/${img}`;
@@ -320,6 +346,37 @@ function CheckoutContent() {
                       paymentMethod === "online" ? "border-[#131b2e]" : "border-[#ccc]"
                     }`}>
                       {paymentMethod === "online" && <div className="w-2.5 h-2.5 rounded-full bg-[#131b2e]" />}
+                    </div>
+                  </button>
+
+                  {/* Neoleap Payment */}
+                  <button
+                    type="button"
+                    onClick={() => setPaymentMethod("neoleap")}
+                    className={`flex items-center justify-between rounded-2xl p-4 sm:p-5 border-2 transition-all ${
+                      paymentMethod === "neoleap"
+                        ? "border-[#775a19] bg-[#fff9ee]"
+                        : "border-[#e8e8e8] bg-white hover:border-[#ccc]"
+                    }`}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#775a19] to-[#131b2e] flex items-center justify-center shrink-0">
+                        <span className="text-[#fed488] font-bold text-xs text-center leading-tight">Neo<br/>leap</span>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-bold text-[#131b2e] text-sm sm:text-base flex items-center gap-2">
+                          Neoleap
+                          <span className="text-[10px] font-medium bg-[#fed488]/30 text-[#775a19] px-2 py-0.5 rounded-full">
+                            آمن ومعتمد
+                          </span>
+                        </div>
+                        <div className="text-[#888] text-xs sm:text-sm mt-0.5">مدى / فيزا / ماستركارد — بوابة سعودية مرخصة</div>
+                      </div>
+                    </div>
+                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                      paymentMethod === "neoleap" ? "border-[#775a19]" : "border-[#ccc]"
+                    }`}>
+                      {paymentMethod === "neoleap" && <div className="w-2.5 h-2.5 rounded-full bg-[#775a19]" />}
                     </div>
                   </button>
 
