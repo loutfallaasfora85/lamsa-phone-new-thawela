@@ -1,11 +1,11 @@
-import Header from "../components/Header";
+﻿import Header from "../components/Header";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "سياسة الشحن | بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري | سهلناها",
-  description: "سياسة الشحن والتوصيل لبائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري",
+  title: "سياسة الشحن | بائع أثاث ومفروشات منزلية - شريحة الأعمال | سهلناها",
+  description: "سياسة الشحن والتوصيل لبائع أثاث ومفروشات منزلية - شريحة الأعمال",
 };
 
 export default function ShippingPolicyPage() {

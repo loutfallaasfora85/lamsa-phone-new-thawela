@@ -3,8 +3,8 @@ import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 
 export const metadata = {
-  title: "من نحن | بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري | سهلناها",
-  description: "تعرف على بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري في المملكة العربية السعودية",
+  title: "من نحن | بائع أثاث ومفروشات منزلية - شريحة الأعمال | سهلناها",
+  description: "تعرف على بائع أثاث ومفروشات منزلية - شريحة الأعمال في المملكة العربية السعودية",
 };
 
 export default function AboutPage() {
@@ -20,7 +20,7 @@ export default function AboutPage() {
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 text-center relative z-10">
             <span className="inline-block text-[#e9c176] text-sm font-medium tracking-[0.05em] uppercase mb-4">من نحن</span>
             <h1 className="text-3xl sm:text-4xl md:text-[60px] font-bold text-white leading-tight md:leading-[72px] tracking-tight mb-4">
-              بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري
+              بائع أثاث ومفروشات منزلية - شريحة الأعمال
             </h1>
             <p className="text-[#e0e3e5] text-base sm:text-lg max-w-xl mx-auto leading-7">
               شريككم الموثوق في عالم الأثاث والمفروشات الفاخرة
@@ -47,7 +47,7 @@ export default function AboutPage() {
                   <div className="w-10 h-10 bg-[#131b2e] rounded-lg flex items-center justify-center">
                     <span className="material-symbols-outlined text-[#bec6e0] text-xl">store</span>
                   </div>
-                  <span className="text-[#191c1e] text-sm font-medium">بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري</span>
+                  <span className="text-[#191c1e] text-sm font-medium">بائع أثاث ومفروشات منزلية - شريحة الأعمال</span>
                 </div>
                 <a href="/commercial-register" className="flex items-center gap-4 group">
                   <div className="w-10 h-10 bg-[#775a19] rounded-lg flex items-center justify-center">

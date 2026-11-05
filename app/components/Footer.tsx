@@ -1,4 +1,4 @@
-export default function Footer() {
+﻿export default function Footer() {
   return (
     <footer dir="rtl" className="bg-[#0c1526] text-white/60">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 py-14 sm:py-16">
@@ -7,7 +7,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">
             <div className="text-white font-bold text-lg mb-1">بائع أثاث ومفروشات منزلية</div>
-            <div className="text-[#fed488] text-xs mb-4 tracking-wide">مرضي جلوي عيشان العميري</div>
+            <div className="text-[#fed488] text-xs mb-4 tracking-wide">شريحة الأعمال</div>
             <p className="text-white/40 text-sm leading-relaxed mb-5">
               وجهتكم الأولى لأفخم المفروشات والأثاث بتصاميم راقية تناسب كل ذوق.
             </p>
@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <span className="text-xs text-white/30">© 2026 بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري. جميع الحقوق محفوظة</span>
+          <span className="text-xs text-white/30">© 2026 بائع أثاث ومفروشات منزلية - شريحة الأعمال. جميع الحقوق محفوظة</span>
           <span className="text-xs text-white/20">صُنع بـ ❤️ في المملكة العربية السعودية</span>
         </div>
       </div>

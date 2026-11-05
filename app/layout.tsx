@@ -10,16 +10,16 @@ const cairo = Cairo({
 });
 
 const siteUrl = "https://lamsastorre.com/";
-const siteName = "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري";
+const siteName = "بائع أثاث ومفروشات منزلية - شريحة الأعمال";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري | سهلناها",
+    default: "بائع أثاث ومفروشات منزلية - شريحة الأعمال | سهلناها",
     template: "%s | سهلناها",
   },
   description:
-    "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري. وجهتكم الأولى لأفخم المفروشات والأثاث المنزلي. نوفر لكم تصاميم راقية تناسب كل ذوق بأفضل الأسعار مع ضمان الجودة.",
+    "بائع أثاث ومفروشات منزلية - شريحة الأعمال. وجهتكم الأولى لأفخم المفروشات والأثاث المنزلي. نوفر لكم تصاميم راقية تناسب كل ذوق بأفضل الأسعار مع ضمان الجودة.",
   keywords: [
     "مفروشات منزلية",
     "أثاث",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "سهلناها",
     "تسوق إلكتروني",
     "ديكور منزلي",
-    "مرضي جلوي عيشان العميري",
+    "شريحة الأعمال",
     "بائع أثاث",
   ],
   openGraph: {
@@ -36,22 +36,22 @@ export const metadata: Metadata = {
     locale: "ar_SA",
     url: siteUrl,
     siteName: siteName,
-    title: "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري | سهلناها",
+    title: "بائع أثاث ومفروشات منزلية - شريحة الأعمال | سهلناها",
     description:
-      "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري. وجهتكم الأولى لأفخم المفروشات والأثاث المنزلي.",
+      "بائع أثاث ومفروشات منزلية - شريحة الأعمال. وجهتكم الأولى لأفخم المفروشات والأثاث المنزلي.",
     images: [
       {
         url: "https://lamsastorre.com/logo.webp",
-        alt: "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري | سهلناها",
+        alt: "بائع أثاث ومفروشات منزلية - شريحة الأعمال | سهلناها",
         type: "image/webp",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري | سهلناها",
+    title: "بائع أثاث ومفروشات منزلية - شريحة الأعمال | سهلناها",
     description:
-      "بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري. وجهتكم الأولى لأفخم المفروشات والأثاث المنزلي.",
+      "بائع أثاث ومفروشات منزلية - شريحة الأعمال. وجهتكم الأولى لأفخم المفروشات والأثاث المنزلي.",
     images: ["https://lamsastorre.com/logo.webp"],
   },
   robots: {
@@ -89,9 +89,11 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <meta name="theme-color" content="#1a237e" />
+        <script src="https://eauthenticate.saudibusiness.gov.sa/EAuthSealApi/seal.js" async />
       </head>
       <body className="bg-surface text-on-surface">
         <Providers>{children}</Providers>
+        <div className="sbc-verify-seal" data-token="TE8yM3VLNml4aXVtWnVIaGxaVzBpZz09" data-position="bottom-left"></div>
       </body>
     </html>
   );

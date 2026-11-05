@@ -1,9 +1,9 @@
-import Header from "../components/Header";
+﻿import Header from "../components/Header";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 
 export const metadata = {
-  title: "سياسة الخصوصية | بائع أثاث ومفروشات منزلية - مرضي جلوي عيشان العميري | سهلناها",
+  title: "سياسة الخصوصية | بائع أثاث ومفروشات منزلية - شريحة الأعمال | سهلناها",
 };
 
 const sections = [
